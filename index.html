@@ -1,54 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saya Bukan Robot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      text-align: center;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .checkbox-container {
+      margin: 20px 0;
+    }
+    .button {
+      padding: 10px 20px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .button:disabled {
+      background-color: #aaa;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Verifikasi Captcha</h1>
+    <p>Silakan centang kotak di bawah ini untuk melanjutkan:</p>
+    <div class="checkbox-container">
+      <input type="checkbox" id="notRobotCheckbox">
+      <label for="notRobotCheckbox">Saya Bukan Robot</label>
+    </div>
+    <a href="https://chat.whatsapp.com/YOUR_GROUP_LINK" id="joinLink">
+      <button class="button" id="joinButton" disabled>Gabung ke Grup WhatsApp</button>
+    </a>
+  </div>
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Konfirmasi: Anda Bukan Robot!</title>
-    <meta author="G-Code | www.g-code.co.id">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <style>
-        body {
-            background: white;
-        }
-        
-        .gcode-head {
-            color: black;
-            font-weight: bold;
-            text-align: center;
-        }
-        
-        .gcode-desk {
-            color: black;
-        }
-        
-    </style>
-  </head>
-  <body>
-    <div class="container text-center">
-        <h1 class="gcode-head mt-4">SAYA BUKAN ROBOT</h1>
-        
-    <form method="POST">
-    <div class="input-group flex-nowrap mb-3">
-      <input type="hidden" name="gcodeToken" class="form-control" placeholder="Password" value="sajhb" required>
-    </div>
-    
-    <div class="form-check mb-3" style="text-align: left;">
-      <input class="form-check-input" type="checkbox" id="gcodeCheck" required>
-      <b>
-      <label class="form-check-label" for="">
-        Klik kotak kecil di samping untuk mengkonfirmasi bahwa anda bukan robot dan melanjutkan bergabung ke dalam grup
-      </label>
-      </b>
-    </div>
-    
-    <div class="d-grid gap-2">
-      <button class="btn btn-primary" type="submit">Lanjutkan</button>
-    </div>
-    </form>
-        
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src=" "></script>
-  </body>
+  <script>
+    const checkbox = document.getElementById('notRobotCheckbox');
+    const joinButton = document.getElementById('joinButton');
+
+    checkbox.addEventListener('change', function() {
+      if (checkbox.checked) {
+        joinButton.disabled = false;
+      } else {
+        joinButton.disabled = true;
+      }
+    });
+  </script>
+</body>
 </html>
