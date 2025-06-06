@@ -1,21 +1,32 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tombol Join Saluran WA Modern Responsif</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+/**
+ * Fungsi untuk membuat dan menambahkan tombol "Join Saluran WhatsApp" yang modern, minimalis, dan responsif.
+ *
+ * @param {string} targetElementId ID dari elemen HTML tempat tombol akan ditambahkan.
+ * @param {string} whatsappChannelURL URL saluran WhatsApp yang sebenarnya.
+ */
+function createWhatsAppJoinButton(targetElementId, whatsappChannelURL) {
+    const targetElement = document.getElementById(targetElementId);
 
-    <style>
-        /* Base Styles & Centering */
+    if (!targetElement) {
+        console.error(`Elemen dengan ID "${targetElementId}" tidak ditemukan.`);
+        return;
+    }
+
+    // 1. Buat elemen <style> untuk CSS
+    const style = document.createElement('style');
+    style.textContent = `
+        /* Font modern */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+        /* Base Styles & Centering (as a reference for context, normally these would be in your main CSS) */
         body {
-            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; /* Font modern */
+            font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-color: #f8f9fa; /* Latar belakang lebih terang */
+            background-color: #f8f9fa;
             padding: 20px;
             box-sizing: border-box;
             color: #333;
@@ -24,8 +35,12 @@
         /* Container for the button */
         .button-wrapper {
             width: 100%;
-            max-width: 350px; /* Batasi lebar maksimal tombol untuk tampilan desktop */
+            max-width: 350px;
             text-align: center;
+            /* Flexbox atau Grid untuk menempatkan tombol di tengah jika diperlukan */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* Modern Minimalist Button Styling */
@@ -33,39 +48,39 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 30px; /* Padding lebih proporsional */
+            padding: 14px 30px;
             background-color: #25D366; /* Warna hijau WhatsApp */
             color: white;
             text-decoration: none;
-            border-radius: 50px; /* Sangat melengkung untuk tampilan modern */
+            border-radius: 50px;
             font-size: 17px;
-            font-weight: 600; /* Sedikit lebih tebal */
-            letter-spacing: 0.5px; /* Spasi antar huruf */
-            transition: all 0.3s ease; /* Transisi untuk semua properti */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Bayangan lebih halus */
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
             cursor: pointer;
-            white-space: nowrap; /* Mencegah teks patah baris */
-            border: none; /* Hilangkan border default */
+            white-space: nowrap;
+            border: none;
         }
 
         /* Hover & Active States */
         .whatsapp-join-button:hover {
-            background-color: #1EBE5A; /* Warna hijau sedikit lebih gelap saat hover */
-            transform: translateY(-3px); /* Efek naik ringan */
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Bayangan lebih besar */
+            background-color: #1EBE5A;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .whatsapp-join-button:active {
-            transform: translateY(0); /* Kembali ke posisi semula saat ditekan */
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Bayangan mengecil */
-            background-color: #1AA74F; /* Warna sedikit lebih gelap lagi */
+            transform: translateY(0);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            background-color: #1AA74F;
         }
 
         /* Icon Styling */
         .whatsapp-join-button .icon {
-            font-size: 20px; /* Ukuran ikon */
-            margin-right: 12px; /* Jarak ikon dengan teks */
-            flex-shrink: 0; /* Pastikan ikon tidak mengecil */
+            font-size: 20px;
+            margin-right: 12px;
+            flex-shrink: 0;
         }
 
         /* --- Responsive Adjustments (Media Queries) --- */
@@ -73,9 +88,9 @@
         /* Untuk layar lebih kecil (Ponsel: <= 767px) */
         @media (max-width: 767px) {
             .whatsapp-join-button {
-                width: 100%; /* Tombol melebar penuh */
+                width: 100%;
                 font-size: 16px;
-                padding: 16px 25px; /* Padding lebih besar untuk sentuhan */
+                padding: 16px 25px;
                 box-sizing: border-box;
             }
 
@@ -97,38 +112,55 @@
                 margin-right: 11px;
             }
         }
+    `;
+    document.head.appendChild(style);
 
-        /* Untuk layar besar (Desktop: >= 1024px) */
-        @media (min-width: 1024px) {
-            .whatsapp-join-button {
-                /* Pengaturan default sudah optimal untuk desktop */
-            }
-        }
-    </style>
-</head>
-<body>
+    // 2. Tambahkan Font Awesome (jika belum ada)
+    if (!document.querySelector('link[href*="font-awesome"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css';
+        link.integrity = 'sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="';
+        link.crossOrigin = 'anonymous';
+        link.referrerPolicy = 'no-referrer';
+        document.head.appendChild(link);
+    }
 
-    <div class="button-wrapper">
-        <div class="whatsapp-join-button" id="joinWhatsappChannel">
-            <i class="fab fa-whatsapp icon"></i>
-            Join Saluran WhatsApp
-        </div>
-    </div>
+    // 3. Buat elemen <div> pembungkus (button-wrapper)
+    const buttonWrapper = document.createElement('div');
+    buttonWrapper.className = 'button-wrapper';
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const joinButton = document.getElementById('joinWhatsappChannel');
-            // GANTI DENGAN URL SALURAN WHATSAPP ANDA YANG SEBENARNYA
-            const channelURL = 'https://whatsapp.com/channel/0029Va7b2f69yS4Q5w7t0X3F'; // Contoh URL. Temukan URL saluran Anda di pengaturan WhatsApp.
+    // 4. Buat elemen <div> tombol (whatsapp-join-button)
+    const whatsappButton = document.createElement('div');
+    whatsappButton.className = 'whatsapp-join-button';
+    whatsappButton.id = 'dynamicWhatsappChannelButton'; // Beri ID unik jika perlu
 
-            if (joinButton) {
-                joinButton.addEventListener('click', function() {
-                    window.open(channelURL, '_blank');
-                });
-            }
-        });
-    </script>
+    // 5. Buat elemen <i> untuk ikon Font Awesome
+    const icon = document.createElement('i');
+    icon.className = 'fab fa-whatsapp icon'; // Kelas Font Awesome untuk ikon WhatsApp
 
-</body>
-</html>
-                
+    // 6. Buat teks tombol
+    const buttonText = document.createTextNode('Join Saluran WhatsApp');
+
+    // 7. Gabungkan elemen-elemen
+    whatsappButton.appendChild(icon);
+    whatsappButton.appendChild(buttonText);
+    buttonWrapper.appendChild(whatsappButton);
+
+    // 8. Tambahkan wrapper ke target elemen di HTML
+    targetElement.appendChild(buttonWrapper);
+
+    // 9. Tambahkan event listener ke tombol
+    whatsappButton.addEventListener('click', function() {
+        window.open(whatsappChannelURL, '_blank');
+    });
+}
+
+// --- Cara Menggunakan Fungsi Ini ---
+// Pastikan elemen dengan ID 'yourContainerId' ada di HTML Anda, misalnya: <div id="yourContainerId"></div>
+
+// Contoh pemanggilan fungsi setelah DOM dimuat:
+document.addEventListener('DOMContentLoaded', function() {
+    const myWhatsappLink = 'https://whatsapp.com/channel/0029Va7b2f69yS4Q5w7t0X3F'; // Ganti dengan URL saluran Anda
+    createWhatsAppJoinButton('whatsapp-button-spot', myWhatsappLink);
+});
