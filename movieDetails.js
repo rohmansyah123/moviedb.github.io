@@ -319,9 +319,19 @@ const html2 = function (moviee) {
             }" target="_blank">Google It!</a> </span> 
             
             </div>
-          <div id="tempat-tombol-wa-anda"></div>
-<script src="wasaluranjoin.js"></script>
-<script>
+            -----------------------
+            <div class="playButtonContainer"> 
+       
+        <a class="playLink" href="https://largeharass.com/any1j9qz45?key=327cb7349599bd96063c2fd1771866d5">
+        <button class="play_btn"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19"
+                fill="currentColor" class="path_btn bi-play-fill" viewBox="0 0 16 16">
+                <path class="path_btnn"
+                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z">
+                </path>
+            </svg>Join Saluran WA</button></a> 
+            
+           </div>
+          
 
 </div> `;
 };
