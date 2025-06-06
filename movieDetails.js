@@ -317,8 +317,9 @@ const html2 = function (moviee) {
               dateFormatter(moviee.release_date) +
               ")"
             }" target="_blank">Google It!</a> </span> 
-            </div>
             src="wasaluranjoin.js"
+            </div>
+            
 
 </div> `;
 };
