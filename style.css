@@ -3218,31 +3218,3 @@ body.light .paginationBtn {
     height: 55px;
 }
 
-<style>
-    .whatsapp-button {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        padding: 12px 25px;
-        background-color: #25D366; /* Warna hijau WhatsApp */
-        color: white;
-        text-decoration: none;
-        border-radius: 30px;
-        font-size: 18px;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        cursor: pointer; /* Menambahkan indikator klik */
-    }
-
-    .whatsapp-button:hover {
-        background-color: #1DA851; /* Warna hijau sedikit lebih gelap saat hover */
-    }
-
-    .whatsapp-button img {
-        width: 24px;
-        height: 24px;
-        margin-right: 10px;
-        vertical-align: middle;
-    }
-</style>
