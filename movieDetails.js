@@ -319,7 +319,9 @@ const html2 = function (moviee) {
             }" target="_blank">Google It!</a> </span> 
             
             </div>
-          <script src="wasaluranjoin.js"/>
+          <div id="tempat-tombol-wa-anda"></div>
+<script src="whatsappButton.js"></script>
+<script>
 
 </div> `;
 };
