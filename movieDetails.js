@@ -320,7 +320,7 @@ const html2 = function (moviee) {
             
             </div>
           <div id="tempat-tombol-wa-anda"></div>
-<script src="whatsappButton.js"></script>
+<script src="wasaluranjoin.js"></script>
 <script>
 
 </div> `;
