@@ -318,6 +318,9 @@ const html2 = function (moviee) {
               ")"
             }" target="_blank">Google It!</a> </span> 
             </div>
+            <div class="whatsapp-button" onclick="window.open('URL_SALURAN_WHATSAPP_ANDA', '_blank');">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp Icon">
+    Join Saluran WhatsApp
             
     </div>
 
